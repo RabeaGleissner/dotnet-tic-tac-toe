@@ -14,7 +14,7 @@ namespace tic_tac_toe_test
 
             ticTacToe.play();
 
-            Assert.Equal(3, userInterfaceMock.printCount);
+            Assert.Equal(3, userInterfaceMock.PrintCount);
         }
     }
 }

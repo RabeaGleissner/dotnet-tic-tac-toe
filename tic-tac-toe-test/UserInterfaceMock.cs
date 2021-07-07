@@ -7,20 +7,23 @@ namespace tic_tac_toe_test
     {
         private readonly List<string> givenInput;
         private readonly List<string> userInput;
-        public int printCount;
-        public List<string> messagesToPrint = new List<string>();
+        private int printCount;
+        private List<string> messagesToPrint = new List<string>();
+
+        public int PrintCount { get => printCount; set => printCount = value; }
+        public List<string> MessagesToPrint { get => messagesToPrint; set => messagesToPrint = value; }
 
         public UserInterfaceMock()
         {
             this.userInput = new List<string>();
-            this.printCount = 0;
+            this.PrintCount = 0;
         }
 
         public UserInterfaceMock(List<string> givenInput)
         {
             this.givenInput = givenInput;
             this.userInput = new List<string>();
-            this.printCount = 0;
+            this.PrintCount = 0;
         }
 
         public string GetInput()
@@ -32,8 +35,8 @@ namespace tic_tac_toe_test
 
         public void Print(string input)
         {
-            this.printCount++;
-            this.messagesToPrint.Add(input);
+            this.PrintCount++;
+            this.MessagesToPrint.Add(input);
         }
     }
 }
