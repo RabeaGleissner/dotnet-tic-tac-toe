@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace tic_tac_toe
+﻿namespace tic_tac_toe
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var ticTacToe = new TicTacToe();
+            TicTacToe ticTacToe = new TicTacToe(new PlayerCommunication(new UserInterface()));
             ticTacToe.play();
         }
     }
