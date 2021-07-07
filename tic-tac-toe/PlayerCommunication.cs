@@ -13,14 +13,14 @@ namespace tic_tac_toe
             this.userInterface = userInterface;
         }
 
-        public void greet() => userInterface.print(greeting);
+        public void Greet() => userInterface.Print(greeting);
 
-        public string promptToPickField()
+        public string PromptToPickField()
         {
-            userInterface.print(prompt);
-            return userInterface.getInput();
+            userInterface.Print(prompt);
+            return userInterface.GetInput();
         }
 
-        public void confirmSelectedField(string selectedField) => userInterface.print($"{confirmField}{selectedField}");
+        public void ConfirmSelectedField(string selectedField) => userInterface.Print($"{confirmField}{selectedField}");
     }
 }

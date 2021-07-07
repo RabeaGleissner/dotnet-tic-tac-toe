@@ -23,14 +23,14 @@ namespace tic_tac_toe_test
             this.printCount = 0;
         }
 
-        public string getInput()
+        public string GetInput()
         {
             string inputToReturn = this.givenInput[0];
             this.givenInput.RemoveAt(0);
             return inputToReturn;
         }
 
-        public void print(string input)
+        public void Print(string input)
         {
             this.printCount++;
             this.messagesToPrint.Add(input);

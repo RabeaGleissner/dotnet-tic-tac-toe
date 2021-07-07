@@ -12,7 +12,7 @@ namespace tic_tac_toe_test
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
             PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
 
-            playerCommunication.greet();
+            playerCommunication.Greet();
 
             Assert.Single(userInterfaceMock.messagesToPrint);
             Assert.Contains("Welcome to Tic Tac Toe!", userInterfaceMock.messagesToPrint);
@@ -24,7 +24,7 @@ namespace tic_tac_toe_test
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock(new List<string> { "1" });
             PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
 
-            string selectedField = playerCommunication.promptToPickField();
+            string selectedField = playerCommunication.PromptToPickField();
 
             Assert.Single(userInterfaceMock.messagesToPrint);
             Assert.Contains("Please pick a field to make your mark", userInterfaceMock.messagesToPrint);
@@ -37,7 +37,7 @@ namespace tic_tac_toe_test
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
             PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
 
-            playerCommunication.confirmSelectedField("3");
+            playerCommunication.ConfirmSelectedField("3");
 
             Assert.Single(userInterfaceMock.messagesToPrint);
             Assert.Contains("You picked 3", userInterfaceMock.messagesToPrint);

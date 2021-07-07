@@ -4,8 +4,8 @@ namespace tic_tac_toe
 {
     internal class UserInterface : IUserInterface
     {
-        public string getInput() => Console.ReadLine();
+        public string GetInput() => Console.ReadLine();
 
-        public void print(string input) => Console.WriteLine(input);
+        public void Print(string input) => Console.WriteLine(input);
     }
 }

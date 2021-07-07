@@ -11,9 +11,9 @@ namespace tic_tac_toe
 
         public void play()
         {
-            playerCommunication.greet();
-            string selectedField = playerCommunication.promptToPickField();
-            playerCommunication.confirmSelectedField(selectedField);
+            playerCommunication.Greet();
+            string selectedField = playerCommunication.PromptToPickField();
+            playerCommunication.ConfirmSelectedField(selectedField);
         }
     }
 }
