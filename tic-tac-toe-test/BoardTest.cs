@@ -9,9 +9,7 @@ namespace tic_tac_toe_test
         [Fact]
         public void IsEmptyInitially()
         {
-            Board board = new Board();
-
-            Assert.True(board.IsEmpty());
+            Assert.True(new Board().IsEmpty());
         }
 
         [Fact]
@@ -64,15 +62,39 @@ namespace tic_tac_toe_test
         [Fact]
         public void IsNotFullWhenThereIsAtLeastOneEmptySlot()
         {
-            List<char> fullBoardState = new List<char> {
+            List<char> notFullBoardState = new List<char> {
                 'X', 'O', 'X',
                 'O', 'X', 'O',
                 'X', 'O', '_',
                 };
 
-            Board board = new Board(fullBoardState);
+            Board board = new Board(notFullBoardState);
 
             Assert.False(board.IsFull());
+        }
+
+        [Fact]
+        public void ReturnsAllRowsColumnsAndDiagonals()
+        {
+            List<char> gameState = new List<char> {
+                'X', 'X', 'X',
+                'O', '_', 'O',
+                '_', 'O', 'X',
+                };
+
+            Board board = new Board(gameState);
+
+            List<List<char>> expectedLines = new List<List<char>>();
+            expectedLines.Add(new List<char> { 'X', 'X', 'X' });
+            expectedLines.Add(new List<char> { 'O', '_', 'O' });
+            expectedLines.Add(new List<char> { '_', 'O', 'X' });
+            expectedLines.Add(new List<char> { 'X', 'O', '_' });
+            expectedLines.Add(new List<char> { 'X', '_', 'O' });
+            expectedLines.Add(new List<char> { 'X', 'O', 'X' });
+            expectedLines.Add(new List<char> { 'X', '_', 'X' });
+            expectedLines.Add(new List<char> { 'X', '_', '_' });
+
+            Assert.Equal(expectedLines, board.GetLines());
         }
     }
 }

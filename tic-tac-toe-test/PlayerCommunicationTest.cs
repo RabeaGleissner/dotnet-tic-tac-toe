@@ -19,6 +19,23 @@ namespace tic_tac_toe_test
         }
 
         [Fact]
+        public void PrintsBoardState()
+        {
+            UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
+            PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
+
+            List<char> boardState = new List<char> {
+                'X', 'O', 'X',
+                'O', '_', 'O',
+                'X', 'O', '_',
+                };
+            playerCommunication.DisplayBoard(new Board(boardState).GetCurrentState());
+
+            Assert.Single(userInterfaceMock.MessagesToPrint);
+            Assert.Contains("X O X\nO _ O\nX O _", userInterfaceMock.MessagesToPrint);
+        }
+
+        [Fact]
         public void AsksPlayerToSelectAFieldAndReturnsSelectedField()
         {
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock(new List<string> { "1" });
@@ -32,15 +49,15 @@ namespace tic_tac_toe_test
         }
 
         [Fact]
-        public void ConfirmsSelectedField()
+        public void AnnouncesGameOver()
         {
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
             PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
 
-            playerCommunication.ConfirmSelectedField("3");
+            playerCommunication.AnnounceGameOver();
 
             Assert.Single(userInterfaceMock.MessagesToPrint);
-            Assert.Contains("You picked 3", userInterfaceMock.MessagesToPrint);
+            Assert.Contains("Game Over!", userInterfaceMock.MessagesToPrint);
         }
     }
 }
