@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using tic_tac_toe;
+using TicTacToe;
 
-namespace tic_tac_toe_test
+namespace TicTacToeTest
 {
     public class UserInterfaceMock : IUserInterface
     {

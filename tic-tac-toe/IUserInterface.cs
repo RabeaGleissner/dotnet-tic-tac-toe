@@ -1,4 +1,4 @@
-namespace tic_tac_toe
+namespace TicTacToe
 {
     public interface IUserInterface
     {

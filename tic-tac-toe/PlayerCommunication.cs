@@ -1,4 +1,6 @@
-namespace tic_tac_toe
+using System.Collections.Generic;
+
+namespace TicTacToe
 {
     public class PlayerCommunication
     {
@@ -6,7 +8,7 @@ namespace tic_tac_toe
 
         const string greeting = "Welcome to Tic Tac Toe!";
         const string prompt = "Please pick a field to make your mark";
-        const string confirmField = "You picked ";
+        private const string gameOver = "Game Over!";
 
         public PlayerCommunication(IUserInterface userInterface)
         {
@@ -15,12 +17,18 @@ namespace tic_tac_toe
 
         public void Greet() => userInterface.Print(greeting);
 
+        public void DisplayBoard(List<char> boardState)
+        {
+            string prettyState = $"{boardState[0]} {boardState[1]} {boardState[2]}\n{boardState[3]} {boardState[4]} {boardState[5]}\n{boardState[6]} {boardState[7]} {boardState[8]}";
+            userInterface.Print(prettyState);
+        }
+
         public string PromptToPickField()
         {
             userInterface.Print(prompt);
             return userInterface.GetInput();
         }
 
-        public void ConfirmSelectedField(string selectedField) => userInterface.Print($"{confirmField}{selectedField}");
+        public void AnnounceGameOver() => userInterface.Print(gameOver);
     }
 }
