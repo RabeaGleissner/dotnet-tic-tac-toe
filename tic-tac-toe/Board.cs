@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace tic_tac_toe
+namespace TicTacToe
 {
     public class Board
     {

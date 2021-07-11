@@ -1,6 +1,6 @@
 using System;
 
-namespace tic_tac_toe
+namespace TicTacToe
 {
     internal class UserInterface : IUserInterface
     {

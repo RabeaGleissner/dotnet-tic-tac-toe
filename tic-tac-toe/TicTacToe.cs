@@ -1,6 +1,6 @@
 using System;
 
-namespace tic_tac_toe
+namespace TicTacToe
 {
     public class TicTacToe
     {

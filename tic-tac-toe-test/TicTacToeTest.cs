@@ -1,8 +1,8 @@
 using Xunit;
-using tic_tac_toe;
+using TicTacToe;
 using System.Collections.Generic;
 
-namespace tic_tac_toe_test
+namespace TicTacToeTest
 {
     public class TicTacToeTest
     {
@@ -10,7 +10,7 @@ namespace tic_tac_toe_test
         public void PlaysUntilThereIsAWinner()
         {
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock(new List<string> { "0", "1", "2" });
-            TicTacToe ticTacToe = new TicTacToe(new PlayerCommunication(userInterfaceMock), new Board());
+            TicTacToe.TicTacToe ticTacToe = new TicTacToe.TicTacToe(new PlayerCommunication(userInterfaceMock), new Board());
 
             ticTacToe.play();
 
