@@ -26,7 +26,7 @@ namespace TicTacToeTest
             List<char> fullBoardState = new List<char> {
                 'X', 'O', 'X',
                 'O', 'X', 'O',
-                'X', 'O', 'X',
+                'X', 'X', 'O',
                 };
 
             Board board = new Board(fullBoardState);
