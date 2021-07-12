@@ -10,9 +10,10 @@ namespace TicTacToeTest
         public void PlaysUntilThereIsAWinner()
         {
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock(new List<string> { "0", "1", "2" });
-            TicTacToe.TicTacToe ticTacToe = new TicTacToe.TicTacToe(new PlayerCommunication(userInterfaceMock), new Board());
+            PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
+            TicTacToeGame ticTacToeGame = new TicTacToeGame(playerCommunication, new Board(), new HumanPlayer(playerCommunication, Mark.X), new ComputerPlayer(new MoveSelectorMock(new List<int> { 8, 7 }), Mark.O));
 
-            ticTacToe.play();
+            ticTacToeGame.play();
 
             Assert.Contains("Welcome to Tic Tac Toe!", userInterfaceMock.MessagesToPrint);
             Assert.Contains("Game Over!", userInterfaceMock.MessagesToPrint);
