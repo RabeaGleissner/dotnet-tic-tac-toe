@@ -2,55 +2,55 @@ namespace TicTacToe
 {
     public class TicTacToeGame
     {
-        private PlayerCommunication playerCommunication;
-        private Board board;
-        private IPlayer player1;
-        private IPlayer player2;
-        private IPlayer currentPlayer;
+        private PlayerCommunication PlayerCommunication;
+        private Board Board;
+        private IPlayer Player1;
+        private IPlayer Player2;
+        private IPlayer CurrentPlayer;
 
         public TicTacToeGame(PlayerCommunication playerCommunication, Board board, IPlayer player1, IPlayer player2)
         {
-            this.playerCommunication = playerCommunication;
-            this.board = board;
-            this.player1 = player1;
-            this.player2 = player2;
-            this.currentPlayer = player1;
+            this.PlayerCommunication = playerCommunication;
+            this.Board = board;
+            this.Player1 = player1;
+            this.Player2 = player2;
+            this.CurrentPlayer = player1;
         }
 
         public void play()
         {
-            playerCommunication.Greet();
-            PlayOneRound();
-            playerCommunication.DisplayBoard(board.GetCurrentState());
-            playerCommunication.AnnounceGameOver();
+            PlayerCommunication.Greet();
+            PlayOneMove();
+            PlayerCommunication.DisplayBoard(Board.GetCurrentState());
+            PlayerCommunication.AnnounceGameOver();
         }
 
-        private void PlayOneRound()
+        private void PlayOneMove()
         {
-            playerCommunication.DisplayBoard(board.GetCurrentState());
-            int selectedField = currentPlayer.SelectMove(board.GetEmptyFields());
-            playerCommunication.AnnounceSelectedField(selectedField, currentPlayer.GetMark());
-            board.AddMark(currentPlayer.GetMark(), selectedField);
-            if (Rules.GameOver(board))
+            PlayerCommunication.DisplayBoard(Board.GetCurrentState());
+            int selectedField = CurrentPlayer.SelectMove(Board.GetEmptyFields());
+            PlayerCommunication.AnnounceSelectedField(selectedField, CurrentPlayer.GetMark());
+            Board.AddMark(CurrentPlayer.GetMark(), selectedField);
+            if (Rules.GameOver(Board))
             {
                 return;
             }
             else
             {
                 SwitchPlayers();
-                PlayOneRound();
+                PlayOneMove();
             }
         }
 
         private void SwitchPlayers()
         {
-            if (currentPlayer == player1)
+            if (CurrentPlayer == Player1)
             {
-                currentPlayer = player2;
+                CurrentPlayer = Player2;
             }
             else
             {
-                currentPlayer = player1;
+                CurrentPlayer = Player1;
             };
         }
 

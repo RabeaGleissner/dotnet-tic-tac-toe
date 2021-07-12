@@ -4,17 +4,17 @@ namespace TicTacToe
 {
     public class ComputerPlayer : IPlayer
     {
-        private IMoveSelector moveSelector;
-        private Mark mark;
+        private IMoveSelector MoveSelector;
+        private Mark Mark;
 
         public ComputerPlayer(IMoveSelector moveSelector, Mark mark)
         {
-            this.mark = mark;
-            this.moveSelector = moveSelector;
+            this.Mark = mark;
+            this.MoveSelector = moveSelector;
         }
 
-        public Mark GetMark() => mark;
+        public Mark GetMark() => Mark;
 
-        public int SelectMove(List<int> emptyFields) => moveSelector.GetMove(emptyFields);
+        public int SelectMove(List<int> emptyFields) => MoveSelector.GetMove(emptyFields);
     }
 }

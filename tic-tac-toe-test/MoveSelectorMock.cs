@@ -5,17 +5,17 @@ namespace TicTacToeTest
 {
     internal class MoveSelectorMock : IMoveSelector
     {
-        private List<int> moves;
+        private List<int> Moves;
 
         public MoveSelectorMock(List<int> moves)
         {
-            this.moves = moves;
+            this.Moves = moves;
         }
 
         public int GetMove(List<int> _)
         {
-            int move = moves[0];
-            moves.RemoveAt(0);
+            int move = Moves[0];
+            Moves.RemoveAt(0);
             return move;
         }
     }

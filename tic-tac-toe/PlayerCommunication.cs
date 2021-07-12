@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 
 namespace TicTacToe
 {
     public class PlayerCommunication
     {
-        IUserInterface userInterface;
+        IUserInterface UserInterface;
         private string errorMessage = "Invalid move! Please try again.";
         private const string greeting = "Welcome to Tic Tac Toe!";
         private const string prompt = "Please pick an empty field to place your mark:\n";
@@ -15,10 +14,10 @@ namespace TicTacToe
 
         public PlayerCommunication(IUserInterface userInterface)
         {
-            this.userInterface = userInterface;
+            this.UserInterface = userInterface;
         }
 
-        public void Greet() => userInterface.Print(greeting);
+        public void Greet() => UserInterface.Print(greeting);
 
         public void DisplayBoard(List<char> boardState)
         {
@@ -31,19 +30,19 @@ namespace TicTacToe
                 prettyBoard += field += spaceOrBreak;
             }
             prettyBoard += line;
-            userInterface.Print(prettyBoard);
+            UserInterface.Print(prettyBoard);
         }
 
-        internal void DisplayError() => userInterface.Print(errorMessage);
+        internal void DisplayError() => UserInterface.Print(errorMessage);
 
         public string PromptToPickField()
         {
-            userInterface.Print(prompt);
-            return userInterface.GetInput();
+            UserInterface.Print(prompt);
+            return UserInterface.GetInput();
         }
 
-        public void AnnounceGameOver() => userInterface.Print(gameOver);
+        public void AnnounceGameOver() => UserInterface.Print(gameOver);
 
-        public void AnnounceSelectedField(int selectedField, Mark mark) => userInterface.Print($"{selectedFieldMessage}{mark}: {selectedField}");
+        public void AnnounceSelectedField(int selectedField, Mark mark) => UserInterface.Print($"{selectedFieldMessage}{mark}: {selectedField}");
     }
 }

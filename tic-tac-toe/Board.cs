@@ -20,7 +20,7 @@ namespace TicTacToe
             this.State = givenState;
         }
 
-        public List<char> GetCurrentState() => this.State;
+        public List<char> GetCurrentState() => State;
 
         public bool IsEmpty()
         {

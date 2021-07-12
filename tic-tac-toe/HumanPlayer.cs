@@ -6,20 +6,20 @@ namespace TicTacToe
 {
     public class HumanPlayer : IPlayer
     {
-        private PlayerCommunication playerCommunication;
-        private Mark mark;
+        private PlayerCommunication PlayerCommunication;
+        private Mark Mark;
 
         public HumanPlayer(PlayerCommunication playerCommunication, Mark mark)
         {
-            this.playerCommunication = playerCommunication;
-            this.mark = mark;
+            this.PlayerCommunication = playerCommunication;
+            this.Mark = mark;
         }
 
-        public Mark GetMark() => mark;
+        public Mark GetMark() => Mark;
 
         public int SelectMove(List<int> emptyFields)
         {
-            string selectedField = playerCommunication.PromptToPickField();
+            string selectedField = PlayerCommunication.PromptToPickField();
 
             if (EmptyFieldsAsStrings(emptyFields).Contains(selectedField))
             {
@@ -35,7 +35,7 @@ namespace TicTacToe
 
         private int ShowErrorAndSelectAgain(List<int> emptyFields)
         {
-            playerCommunication.DisplayError();
+            PlayerCommunication.DisplayError();
             return SelectMove(emptyFields);
         }
     }
