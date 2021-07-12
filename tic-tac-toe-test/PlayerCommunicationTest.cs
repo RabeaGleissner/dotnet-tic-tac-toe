@@ -19,6 +19,23 @@ namespace TicTacToeTest
         }
 
         [Fact]
+        public void PrintsEmptyBoardWithSlotsAsNumbers()
+        {
+            UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
+            PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
+
+            List<char> boardState = new List<char> {
+                '_', '_', '_',
+                '_', '_', '_',
+                '_', '_', '_',
+                };
+            playerCommunication.DisplayBoard(new Board(boardState).GetCurrentState());
+
+            Assert.Single(userInterfaceMock.MessagesToPrint);
+            Assert.Contains("\n-----\n0 1 2\n3 4 5\n6 7 8 \n-----\n", userInterfaceMock.MessagesToPrint);
+        }
+
+        [Fact]
         public void PrintsBoardState()
         {
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
@@ -32,7 +49,7 @@ namespace TicTacToeTest
             playerCommunication.DisplayBoard(new Board(boardState).GetCurrentState());
 
             Assert.Single(userInterfaceMock.MessagesToPrint);
-            Assert.Contains("X O X\nO _ O\nX O _", userInterfaceMock.MessagesToPrint);
+            Assert.Contains("\n-----\nX O X\nO 4 O\nX O 8 \n-----\n", userInterfaceMock.MessagesToPrint);
         }
 
         [Fact]
@@ -44,7 +61,7 @@ namespace TicTacToeTest
             string selectedField = playerCommunication.PromptToPickField();
 
             Assert.Single(userInterfaceMock.MessagesToPrint);
-            Assert.Contains("Please pick a field to make your mark", userInterfaceMock.MessagesToPrint);
+            Assert.Contains("Please pick an empty field to place your mark:\n", userInterfaceMock.MessagesToPrint);
             Assert.Equal("1", selectedField);
         }
 

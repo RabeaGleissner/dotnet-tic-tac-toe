@@ -7,9 +7,10 @@ namespace TicTacToe
         IUserInterface userInterface;
 
         private const string greeting = "Welcome to Tic Tac Toe!";
-        private const string prompt = "Please pick a field to make your mark";
+        private const string prompt = "Please pick an empty field to place your mark:\n";
         private const string gameOver = "Game Over!";
         private const string selectedFieldMessage = "Selected field by player ";
+        private const string line = "\n-----\n";
 
         public PlayerCommunication(IUserInterface userInterface)
         {
@@ -20,8 +21,16 @@ namespace TicTacToe
 
         public void DisplayBoard(List<char> boardState)
         {
-            string prettyState = $"{boardState[0]} {boardState[1]} {boardState[2]}\n{boardState[3]} {boardState[4]} {boardState[5]}\n{boardState[6]} {boardState[7]} {boardState[8]}";
-            userInterface.Print(prettyState);
+            string prettyBoard = line;
+            for (int i = 0; i < boardState.Count; i++)
+            {
+                string field = boardState[i] == '_' ? i.ToString() : boardState[i].ToString();
+                bool endOfFirstOrSecondLine = i == 2 || i == 5;
+                string spaceOrBreak = endOfFirstOrSecondLine ? "\n" : " ";
+                prettyBoard += field += spaceOrBreak;
+            }
+            prettyBoard += line;
+            userInterface.Print(prettyBoard);
         }
 
         public string PromptToPickField()
