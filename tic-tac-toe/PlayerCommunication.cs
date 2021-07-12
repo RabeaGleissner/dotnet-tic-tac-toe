@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace TicTacToe
@@ -5,7 +6,7 @@ namespace TicTacToe
     public class PlayerCommunication
     {
         IUserInterface userInterface;
-
+        private string errorMessage = "Invalid move! Please try again.";
         private const string greeting = "Welcome to Tic Tac Toe!";
         private const string prompt = "Please pick an empty field to place your mark:\n";
         private const string gameOver = "Game Over!";
@@ -32,6 +33,8 @@ namespace TicTacToe
             prettyBoard += line;
             userInterface.Print(prettyBoard);
         }
+
+        internal void DisplayError() => userInterface.Print(errorMessage);
 
         public string PromptToPickField()
         {
