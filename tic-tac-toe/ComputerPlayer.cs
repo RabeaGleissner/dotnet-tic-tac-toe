@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TicTacToe
 {
     public class ComputerPlayer : IPlayer
@@ -13,6 +15,6 @@ namespace TicTacToe
 
         public Mark GetMark() => mark;
 
-        public int SelectMove() => moveSelector.GetMove();
+        public int SelectMove(List<int> emptyFields) => moveSelector.GetMove(emptyFields);
     }
 }

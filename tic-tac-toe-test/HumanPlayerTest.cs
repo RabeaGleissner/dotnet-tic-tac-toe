@@ -12,7 +12,7 @@ namespace TicTacToeTest
             PlayerCommunication playerCommunication = new PlayerCommunication(new UserInterfaceMock(new List<string> { "5" }));
             HumanPlayer humanPlayer = new HumanPlayer(playerCommunication, Mark.X);
 
-            Assert.Equal(5, humanPlayer.SelectMove());
+            Assert.Equal(5, humanPlayer.SelectMove(new Board().GetEmptyFields()));
         }
 
         [Fact]

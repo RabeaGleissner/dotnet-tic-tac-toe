@@ -28,7 +28,7 @@ namespace TicTacToe
         private void PlayOneRound()
         {
             playerCommunication.DisplayBoard(board.GetCurrentState());
-            int selectedField = currentPlayer.SelectMove();
+            int selectedField = currentPlayer.SelectMove(board.GetEmptyFields());
             playerCommunication.AnnounceSelectedField(selectedField, currentPlayer.GetMark());
             board.AddMark(currentPlayer.GetMark(), selectedField);
             if (Rules.GameOver(board))

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace TicTacToe
 {
@@ -15,7 +16,7 @@ namespace TicTacToe
 
         public Mark GetMark() => mark;
 
-        public int SelectMove()
+        public int SelectMove(List<int> emptyFields)
         {
             string selectedField = playerCommunication.PromptToPickField();
             return Int16.Parse(selectedField);
