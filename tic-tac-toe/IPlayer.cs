@@ -1,8 +1,10 @@
+using System.Collections.Generic;
+
 namespace TicTacToe
 {
     public interface IPlayer
     {
-        int SelectMove();
+        int SelectMove(List<int> emptyFields);
         Mark GetMark();
     }
 }

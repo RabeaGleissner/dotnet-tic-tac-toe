@@ -11,7 +11,7 @@ namespace TicTacToeTest
         {
             ComputerPlayer computerPlayer = new ComputerPlayer(new MoveSelectorMock(new List<int> { 4 }), Mark.O);
 
-            Assert.Equal(4, computerPlayer.SelectMove());
+            Assert.Equal(4, computerPlayer.SelectMove(new Board().GetEmptyFields()));
         }
 
         [Fact]

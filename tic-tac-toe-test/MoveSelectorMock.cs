@@ -12,7 +12,7 @@ namespace TicTacToeTest
             this.moves = moves;
         }
 
-        public int GetMove()
+        public int GetMove(List<int> _)
         {
             int move = moves[0];
             moves.RemoveAt(0);

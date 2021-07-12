@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,12 +24,12 @@ namespace TicTacToe
 
         public bool IsEmpty()
         {
-            return !this.State.Contains((char)Mark.O) && !this.State.Contains((char)Mark.X);
+            return !State.Contains((char)Mark.O) && !State.Contains((char)Mark.X);
         }
 
-        public void AddMark(Mark mark, int position) => this.State[position] = (char)mark;
+        public void AddMark(Mark mark, int position) => State[position] = (char)mark;
 
-        public bool IsFull() => !this.State.Contains('_');
+        public bool IsFull() => !State.Contains('_');
 
         public List<List<char>> GetLines()
         {
@@ -45,7 +44,7 @@ namespace TicTacToe
         {
             for (int i = 0; i < Size; i += Dimension)
             {
-                lines.Add((List<char>)this.State.Skip(i).Take(Dimension).ToList());
+                lines.Add((List<char>)State.Skip(i).Take(Dimension).ToList());
             }
         }
 
@@ -53,14 +52,27 @@ namespace TicTacToe
         {
             for (int i = 0; i < Dimension; i++)
             {
-                lines.Add(new List<char> { this.State[i], this.State[i + Dimension], this.State[i + (Dimension * 2)] });
+                lines.Add(new List<char> { State[i], State[i + Dimension], State[i + (Dimension * 2)] });
             }
         }
 
         private void AddDiagonals(List<List<char>> lines)
         {
-            lines.Add(new List<char> { this.State[0], this.State[4], this.State[8] });
-            lines.Add(new List<char> { this.State[2], this.State[4], this.State[6] });
+            lines.Add(new List<char> { State[0], State[4], State[8] });
+            lines.Add(new List<char> { State[2], State[4], State[6] });
+        }
+
+        public List<int> GetEmptyFields()
+        {
+            List<int> emptyFields = new List<int> { };
+            for (int i = 0; i < State.Count; i++)
+            {
+                if (State[i] == '_')
+                {
+                    emptyFields.Add(i);
+                }
+            }
+            return emptyFields;
         }
     }
 }

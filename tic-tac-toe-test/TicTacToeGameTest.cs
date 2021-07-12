@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TicTacToeTest
 {
-    public class TicTacToeTest
+    public class TicTacToeGameTest
     {
         [Fact]
         public void PlaysUntilThereIsAWinner()

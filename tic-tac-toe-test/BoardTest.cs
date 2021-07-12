@@ -96,5 +96,19 @@ namespace TicTacToeTest
 
             Assert.Equal(expectedLines, board.GetLines());
         }
+
+        [Fact]
+        public void ReturnsAllEmptyFields()
+        {
+            List<char> gameState = new List<char> {
+                '_', '_', 'X',
+                'O', '_', 'O',
+                '_', 'O', 'X',
+                };
+
+            Board board = new Board(gameState);
+
+            Assert.Equal(new List<int> { 0, 1, 4, 6 }, board.GetEmptyFields());
+        }
     }
 }
