@@ -1,16 +1,22 @@
+using System.Collections.Generic;
 using TicTacToe;
 
 namespace TicTacToeTest
 {
     internal class MoveSelectorMock : IMoveSelector
     {
-        private int move;
+        private List<int> moves;
 
-        public MoveSelectorMock(int move)
+        public MoveSelectorMock(List<int> moves)
         {
-            this.move = move;
+            this.moves = moves;
         }
 
-        public int GetMove() => move;
+        public int GetMove()
+        {
+            int move = moves[0];
+            moves.RemoveAt(0);
+            return move;
+        }
     }
 }

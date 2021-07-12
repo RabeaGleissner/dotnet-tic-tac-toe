@@ -14,5 +14,14 @@ namespace TicTacToeTest
 
             Assert.Equal(5, humanPlayer.SelectMove());
         }
+
+        [Fact]
+        public void ReturnsItsMark()
+        {
+            PlayerCommunication playerCommunication = new PlayerCommunication(new UserInterfaceMock());
+            HumanPlayer humanPlayer = new HumanPlayer(playerCommunication, Mark.X);
+
+            Assert.Equal(Mark.X, humanPlayer.GetMark());
+        }
     }
 }

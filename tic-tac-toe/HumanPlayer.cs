@@ -13,6 +13,8 @@ namespace TicTacToe
             this.mark = mark;
         }
 
+        public Mark GetMark() => mark;
+
         public int SelectMove()
         {
             string selectedField = playerCommunication.PromptToPickField();
