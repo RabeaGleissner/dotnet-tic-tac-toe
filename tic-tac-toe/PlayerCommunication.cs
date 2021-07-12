@@ -9,7 +9,7 @@ namespace TicTacToe
         private const string greeting = "Welcome to Tic Tac Toe!";
         private const string prompt = "Please pick a field to make your mark";
         private const string gameOver = "Game Over!";
-        private const string selectedFieldMessage = "Selected field: ";
+        private const string selectedFieldMessage = "Selected field by player ";
 
         public PlayerCommunication(IUserInterface userInterface)
         {
@@ -32,6 +32,6 @@ namespace TicTacToe
 
         public void AnnounceGameOver() => userInterface.Print(gameOver);
 
-        public void AnnounceSelectedField(int selectedField) => userInterface.Print($"{selectedFieldMessage}{selectedField}");
+        public void AnnounceSelectedField(int selectedField, Mark mark) => userInterface.Print($"{selectedFieldMessage}{mark}: {selectedField}");
     }
 }

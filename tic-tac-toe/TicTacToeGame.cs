@@ -29,7 +29,7 @@ namespace TicTacToe
         {
             playerCommunication.DisplayBoard(board.GetCurrentState());
             int selectedField = currentPlayer.SelectMove();
-            playerCommunication.AnnounceSelectedField(selectedField);
+            playerCommunication.AnnounceSelectedField(selectedField, currentPlayer.GetMark());
             board.AddMark(currentPlayer.GetMark(), selectedField);
             if (Rules.GameOver(board))
             {

@@ -66,10 +66,10 @@ namespace TicTacToeTest
             UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
             PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
 
-            playerCommunication.AnnounceSelectedField(100);
+            playerCommunication.AnnounceSelectedField(100, Mark.O);
 
             Assert.Single(userInterfaceMock.MessagesToPrint);
-            Assert.Contains("Selected field: 100", userInterfaceMock.MessagesToPrint);
+            Assert.Contains("Selected field by player O: 100", userInterfaceMock.MessagesToPrint);
         }
     }
 }
