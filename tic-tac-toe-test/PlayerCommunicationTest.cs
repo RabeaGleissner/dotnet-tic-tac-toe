@@ -59,5 +59,17 @@ namespace TicTacToeTest
             Assert.Single(userInterfaceMock.MessagesToPrint);
             Assert.Contains("Game Over!", userInterfaceMock.MessagesToPrint);
         }
+
+        [Fact]
+        public void AnnouncesSelectedField()
+        {
+            UserInterfaceMock userInterfaceMock = new UserInterfaceMock();
+            PlayerCommunication playerCommunication = new PlayerCommunication(userInterfaceMock);
+
+            playerCommunication.AnnounceSelectedField(100);
+
+            Assert.Single(userInterfaceMock.MessagesToPrint);
+            Assert.Contains("Selected field: 100", userInterfaceMock.MessagesToPrint);
+        }
     }
 }
